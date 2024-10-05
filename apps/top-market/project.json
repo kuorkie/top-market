@@ -9,7 +9,7 @@
     "sourceLocale": "en-US",
     "locales": {
       "en-GB": "apps/top-market/src/locale/messages.en-GB.xlf",
-      "ru-RU": "apps/top-market/src/locales/messages.ru-RU.xlf"
+      "ru": "apps/top-market/src/locales/messages.ru.xlf"
     }
   },
   "targets": {
@@ -38,8 +38,8 @@
         "en-GB": {
           "localize": ["en-GB"]
         },
-        "ru-RU": {
-          "localize": ["ru-RU"]
+        "ru": {
+          "localize": ["ru"]
         },
         "production": {
           "budgets": [
@@ -71,10 +71,10 @@
       "executor": "@angular-devkit/build-angular:dev-server",
       "configurations": {
         "production": {
-          "buildTarget": "top-market:build:production,ru-RU"
+          "buildTarget": "top-market:build:production,ru"
         },
         "development": {
-          "buildTarget": "top-market:build:development,ru-RU"
+          "buildTarget": "top-market:build:development,ru"
         }
       },
       "defaultConfiguration": "development"
