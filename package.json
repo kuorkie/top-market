@@ -2,7 +2,13 @@
   "name": "@top-market/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx serve",
+    "build": "nx build",
+    "test": "nx test",
+    "top-market": "npx nx serve top-market --port 4200",
+    "admin": "npx nx serve admin --port 4201"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~18.2.0",
