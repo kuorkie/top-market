@@ -1,0 +1,44 @@
+<div class="min-h-full align-items-center flex flex-column justify-content-between justify-content-center lg:px-8 md:px-6 px-4 pt-8 surface-ground">
+  <div class="surface-card p-4 shadow-2 border-round w-full lg:w-4">
+    <div class="text-center mb-5">
+      <img src="assets/logo.svg" alt="Image" height="40" class="mb-3" />
+      <div class="text-900 text-3xl font-medium mb-3">Добро пожаловать</div>
+      <span class="text-600 font-medium line-height-3">ПОРТАЛ УПРАВЛЕНИЯ БИЗНЕС-ПРОЦЕССАМИ</span>
+    </div>
+    <div>
+      <form class="ng-touched ng-dirty ng-valid" [formGroup]="profileForm"
+            (ngSubmit)="profileForm.valid ? onSubmit() : null"
+            novalidate>
+        <label for="username" class="block text-900 font-medium mb-2">Логин</label>
+        <input id="username" type="text" formControlName="userName" pInputText class="w-full mb-3 p-2 w-full p-filled">
+        <label for="password" class="block text-900 font-medium mb-2">Пароль</label>
+
+        <p-password [toggleMask]="true" id="password" name="password" formControlName="passWord" class="p-password-mask"
+                    [inputStyleClass]="'p-2 w-full'" [style]="{'width':'100%'}"
+                    [feedback]="false" />
+        <div class="flex align-items-center mt-3 mb-6">
+          <p-checkbox class="mr-2"
+                      formControlName="rememberMe"
+                      [binary]="true"
+                      inputId="binary" id="remember-me" name="remember-me" />
+          <label for="remember-me">Запомнить меня</label>
+        </div>
+        <p-button label="Авторизоваться" type="submit" class="p-element flex w-full justify-center"
+                  [styleClass]="'text-base p-3'"
+                  [style]="{'width':'100%'}" />
+      </form>
+      <p-messages />
+    </div>
+  </div>
+  <div>
+    <p class="mt-10 text-center text-sm text-gray-500">2024. <span class="font-semibold leading-6" style="color: #F5146E;">Magnum Cash &amp; Carry</span>.
+      СУБП </p>
+  </div>
+</div>
+
+
+<!--<button pButton label="aghbskks"></button>-->
+
+<!--<p-checkbox value="true"></p-checkbox>-->
+
+<!--<i class="pi pi-check"> </i>-->

@@ -31,7 +31,8 @@
             "input": "apps/admin/public"
           }
         ],
-        "styles": ["apps/admin/src/styles.scss"],
+        "styles": ["apps/admin/src/styles.scss",
+          "libs/ui/src/lib/styles/common-styles.scss"],
         "scripts": []
       },
       "configurations": {

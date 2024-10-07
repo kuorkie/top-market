@@ -14,7 +14,11 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@top-market/libs/auth": ["libs/auth/src/index.ts"],
+      "@top-market/libs/shared": ["libs/shared/src/index.ts"],
+      "@top-market/ui": ["libs/ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
