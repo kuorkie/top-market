@@ -7,6 +7,7 @@ import {AvatarModule} from "primeng/avatar";
 import {ButtonModule} from "primeng/button";
 import { RippleModule } from 'primeng/ripple';
 import { StyleClassModule } from 'primeng/styleclass';
+import { HttpClientModule} from "@angular/common/http";
 
 
 
@@ -22,7 +23,10 @@ import { StyleClassModule } from 'primeng/styleclass';
     AvatarModule,
     ButtonModule,
     SidebarModule,
-    SharedRoutingModule, RippleModule, StyleClassModule
+    SharedRoutingModule,
+    RippleModule,
+    StyleClassModule,
+    HttpClientModule
   ]
 })
 export class SharedModule { }
