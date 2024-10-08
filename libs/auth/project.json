@@ -6,6 +6,10 @@
   "projectType": "library",
   "tags": [],
   "targets": {
+      "build": {
+        "options": {
+          "styles": ["libs/ui/src/lib/styles/common-styles.scss"]
+        },
     "test": {
       "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
