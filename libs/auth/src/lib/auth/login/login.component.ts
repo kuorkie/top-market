@@ -52,9 +52,10 @@ export class LoginComponent implements OnInit  {
     }
     this.userService.login(body).subscribe(value => {
 
-      sessionStorage.setItem('data', JSON.stringify({
+      localStorage.setItem('data', JSON.stringify({
         token: value.token,
         userName: this.profileForm.get('userName')?.value,
+        expiresIn:value.expiresIn
       }));
     })
     // this.router.navigate(['admin-dashboard'])
