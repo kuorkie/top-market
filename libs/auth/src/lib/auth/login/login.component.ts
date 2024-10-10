@@ -57,7 +57,9 @@ export class LoginComponent implements OnInit  {
         userName: this.profileForm.get('userName')?.value,
         expiresIn:value.expiresIn
       }));
+      this.userService.setIsLoggedIn(true);
+      this.router.navigate(['admin-dashboard'])
+
     })
-    // this.router.navigate(['admin-dashboard'])
   }
 }

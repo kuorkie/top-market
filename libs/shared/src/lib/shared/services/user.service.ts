@@ -15,26 +15,18 @@ export class UserService {
   public isLoggedIn = signal(this.checkLocalStorageData());
   private loginUrl = environment.loginUrl;
   private adminUrl = environment.adminUrl;
-  // private userData
-  // private auth
-  // public isLoggedIn = signal(this.checkLocalStorageData());
+  private auth: string = "";
 
-  // setIsLoggedIn(isLoggedIn: boolean) {
-  //   this.isLoggedIn.set(isLoggedIn);
-  // }
   checkLocalStorageData() {
     if (localStorage.getItem('data')) {
       const storageData = localStorage.getItem('data');
       const storageDataJson = storageData !== null ? JSON.parse(storageData) : undefined;
-      // if (storageDataJson) {
-      //   const expDate = new Date(storageDataJson.expDate);
-      //   if (expDate < new Date().getDay()) {
-      //     localStorage.removeItem('mp-mf-data');
-      //   } else {
-      //
-      //     return true;
-      //   }
-      // }
+      if (storageDataJson) {
+        this.auth = `?accountName=${storageDataJson.userName}`
+        this.menuListByAcc();
+        return true;
+
+      }
     }
     return false;
   }
@@ -42,18 +34,21 @@ export class UserService {
     return new HttpContext().set(WITH_AUTHORIZATION, isAuth);
   }
 
+  setIsLoggedIn(isLoggedIn: boolean) {
+    this.isLoggedIn.set(isLoggedIn);
+  }
+
   login(body: any) {
     return this.http.post<any>(`${this.loginUrl}/login`, body, {context: this.setHttpContex(false)});
   }
 
   logout() {
-    // this.isLoggedIn.set(false);
-    localStorage.removeItem('mp-mf-data');
-    this.router.navigate(['/login']);
+    this.isLoggedIn.set(false);
+    localStorage.removeItem('data');
+    this.router.navigate(['/admin/login']);
   }
 
   menuListByAcc(){
-    let auth
-    return this.http.get(`${this.adminUrl}menu/by-account-name${auth}` );
+    return this.http.get(`${this.adminUrl}menu/by-account-name${this.auth}` );
   }
 }
