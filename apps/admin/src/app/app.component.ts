@@ -10,9 +10,8 @@ import {PrimeNGConfig} from "primeng/api";
 })
 export class AppComponent {
   title = 'admin';
-  userService = inject(UserService);
 
-  constructor(private primengConfig: PrimeNGConfig) {
-    this.primengConfig.ripple = true;
+  constructor(public userService:UserService) {
+
   }
 }

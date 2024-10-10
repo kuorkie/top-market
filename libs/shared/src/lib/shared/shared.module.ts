@@ -10,10 +10,10 @@ import { StyleClassModule } from 'primeng/styleclass';
 import { HttpClientModule} from "@angular/common/http";
 
 
-
 @NgModule({
   declarations: [
-    SidebarComponent
+    SidebarComponent,
+
   ],
   exports: [
     SidebarComponent
