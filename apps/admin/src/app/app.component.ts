@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { NxWelcomeComponent } from './nx-welcome.component';
 import {UserService} from "../../../../libs/shared/src/lib/shared/services/user.service";
+import {PrimeNGConfig} from "primeng/api";
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
