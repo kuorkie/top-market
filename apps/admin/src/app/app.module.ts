@@ -9,6 +9,7 @@ import {AvatarModule} from "primeng/avatar";
 import {ButtonModule} from "primeng/button";
 import {SidebarModule} from "primeng/sidebar";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -23,7 +24,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     SharedModule,
     AvatarModule,
     ButtonModule,
-    SidebarModule
+    SidebarModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent],
 

@@ -23,7 +23,7 @@ export class UserService {
       const storageDataJson = storageData !== null ? JSON.parse(storageData) : undefined;
       if (storageDataJson) {
         this.auth = `?accountName=${storageDataJson.userName}`
-        this.menuListByAcc();
+        // this.menuListByAcc();
         return true;
 
       }
@@ -48,7 +48,8 @@ export class UserService {
     this.router.navigate(['/admin/login']);
   }
 
-  menuListByAcc(){
-    return this.http.get(`${this.adminUrl}menu/by-account-name${this.auth}` );
+  menuListByAcc(accountName: string): Observable<any> {
+    console.log(this.auth)
+    return this.http.get(`${this.adminUrl}menu/by-account-name?accountName=${accountName}` );
   }
 }

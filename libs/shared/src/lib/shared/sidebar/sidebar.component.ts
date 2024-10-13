@@ -8,17 +8,22 @@ import {UserService} from "../services/user.service";
   styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent {
-  constructor(private sharedService:SharedService, private userService: UserService){
+  constructor(private sharedService: SharedService, private userService: UserService) {
 
   }
 
-  allMenu:any[] = []
-  sidebarVisible:boolean = true
-  ngOnInit(){
-    if(sessionStorage.getItem('data')){
-      this.sidebarVisible = true
-      this.getAllMenu()
+  allMenu: any[] = []
+  sidebarVisible: boolean = true
+  private accountName: string = "";
 
+  ngOnInit() {
+    const storageData = localStorage.getItem('data');
+    const storageDataJson = storageData !== null ? JSON.parse(storageData) : undefined;
+
+    if (storageDataJson) {
+      this.accountName = storageDataJson.userName
+      this.sidebarVisible = true
+      this.getAllMenu(this.accountName)
     }
   }
 
@@ -27,9 +32,14 @@ export class SidebarComponent {
   //    this.allMenu = data
   //   })
   // }
-  getAllMenu(){
-    this.userService.menuListByAcc().subscribe((data:any)=>{
-      console.log(data)
-    })
+  getAllMenu(accountName: string) {
+    this.userService.menuListByAcc(accountName).subscribe((data: any) => {
+        console.log(data);
+        this.allMenu = data; // Assign the fetched data to allMenu
+      },
+      (error) => {
+        console.error('Error fetching menu:', error); // Add error handling
+      }
+    );
   }
 }

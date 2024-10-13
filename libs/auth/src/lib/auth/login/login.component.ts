@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit  {
   }
 
   onSubmit() {
-    localStorage.setItem('hh','true')
     let body = {
       "id": 0,
       "clientTypeId": 0,
@@ -58,6 +57,8 @@ export class LoginComponent implements OnInit  {
         expiresIn:value.expiresIn
       }));
       this.userService.setIsLoggedIn(true);
+      // this.userService.menuListByAcc(this.profileForm.get('userName')?.value);
+
       this.router.navigate(['admin-dashboard'])
 
     })
