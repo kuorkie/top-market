@@ -14,4 +14,8 @@ export class AppComponent {
   constructor(public userService:UserService) {
 
   }
+
+  ngOnInit(){
+    console.log(this.userService.isLoggedIn())
+  }
 }

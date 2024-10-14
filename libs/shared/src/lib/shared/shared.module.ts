@@ -8,6 +8,7 @@ import {ButtonModule} from "primeng/button";
 import { RippleModule } from 'primeng/ripple';
 import { StyleClassModule } from 'primeng/styleclass';
 import { HttpClientModule} from "@angular/common/http";
+import {RouterModule} from "@angular/router";
 
 
 @NgModule({
@@ -26,7 +27,7 @@ import { HttpClientModule} from "@angular/common/http";
     SharedRoutingModule,
     RippleModule,
     StyleClassModule,
-    HttpClientModule
+    HttpClientModule,RouterModule
   ]
 })
 export class SharedModule { }

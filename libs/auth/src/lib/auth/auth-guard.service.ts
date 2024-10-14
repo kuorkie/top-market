@@ -10,10 +10,10 @@ export class AuthGuardService implements CanActivate {
 
   async canActivate() {
 
-    const isUserAuthenticated = localStorage.getItem('token');
+    const isUserAuthenticated = localStorage.getItem('data');
     if (isUserAuthenticated) {
       console.log('called if')
-      this.router.navigate(['users']);
+      this.router.navigate(['admin-home']);
       return false;
     } else {
       console.log('called else');

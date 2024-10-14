@@ -1,22 +1,27 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {SharedService} from "../shared.service";
 import {UserService} from "../services/user.service";
+import {Sidebar} from "primeng/sidebar";
+import {Router } from "@angular/router";
 @Component({
   selector: 'lib-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrl: './sidebar.component.css',
+
 })
 export class SidebarComponent {
-  constructor(private sharedService: SharedService, private userService: UserService) {
+  constructor(private sharedService: SharedService, private userService: UserService,private router:Router) {
 
   }
+  @ViewChild('sidebarRef') sidebarRef!: Sidebar;
 
   allMenu: any[] = []
   sidebarVisible: boolean = true
   private accountName: string = "";
 
   ngOnInit() {
+
     const storageData = localStorage.getItem('data');
     const storageDataJson = storageData !== null ? JSON.parse(storageData) : undefined;
 
@@ -27,11 +32,18 @@ export class SidebarComponent {
     }
   }
 
-  // getAllMenu(){
-  //   this.sharedService.getAllMenu().subscribe((data:any)=>{
-  //    this.allMenu = data
-  //   })
-  // }
+  closeCallback(e:any): void {
+    this.sidebarRef.close(e)
+  }
+
+  navigate(url:string){
+    this.router.navigate([`admin-home/${url}`])
+  }
+
+  openCallback():void{
+    this.sidebarRef.show()
+  }
+
   getAllMenu(accountName: string) {
     this.userService.menuListByAcc(accountName).subscribe((data: any) => {
         console.log(data);

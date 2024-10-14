@@ -1,0 +1,20 @@
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+}
+
+.app-main__outer {
+  flex: 1;
+  flex-direction: column;
+  display: flex;
+  z-index: 8;
+  padding: 0 0 0 280px;
+  transition: all .2s;
+}
+
+.app-main__inner {
+  padding: 1.5rem 1.5rem 0;
+  flex: 1;
+}

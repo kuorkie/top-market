@@ -2,6 +2,8 @@ import { Route,RouterModule} from '@angular/router';
 import {loadRemoteModule} from "@nx/angular/mf";
 import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
+import {authGuard} from "../../../../libs/shared/src/lib/shared/services/auth.guard";
+import {UsersComponent} from "./modules/administration/users/users.component";
 
 export const appRoutes: Route[] = [
   {
@@ -11,12 +13,13 @@ export const appRoutes: Route[] = [
   },
   {
     path: 'admin',
-    loadChildren: () => import('@top-market/libs/auth').then(m=>m.AuthModule)
+    loadChildren: () => import('@top-market/libs/auth').then(m=>m.AuthModule),
   },
   {
-    path: 'admin-dashboard',
-    component:AppComponent
-  },
+    path: 'admin-home',
+    loadChildren: () => import('./modules/administration/administration.module').then(m=>m.AdministrationModule),    canActivate:[authGuard]
+
+  }
 
 ];
 

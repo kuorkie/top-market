@@ -16,6 +16,10 @@ export class LoginComponent implements OnInit  {
     private formBuilder: FormBuilder,
     private router: Router,private userService:UserService) {
 
+    if (this.userService.isLoggedIn()) {
+      this.router.navigate(['admin-home'])
+    }
+
     this.profileForm = this.formBuilder.group({
       userName: new FormControl<string | null>('', [Validators.required]),
       passWord: new FormControl<string | null>('', [Validators.required]),
@@ -57,9 +61,8 @@ export class LoginComponent implements OnInit  {
         expiresIn:value.expiresIn
       }));
       this.userService.setIsLoggedIn(true);
-      // this.userService.menuListByAcc(this.profileForm.get('userName')?.value);
 
-      this.router.navigate(['admin-dashboard'])
+      this.router.navigate(['admin-home'])
 
     })
   }
