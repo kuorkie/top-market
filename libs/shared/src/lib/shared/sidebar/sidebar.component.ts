@@ -21,7 +21,6 @@ export class SidebarComponent {
   private accountName: string = "";
   activeLink: string = '';
 
-
   ngOnInit() {
 
     const storageData = localStorage.getItem('data');
@@ -36,6 +35,7 @@ export class SidebarComponent {
 
   closeCallback(e:any): void {
     this.sidebarRef.close(e)
+    console.log(e)
   }
 
   navigate(url:string){

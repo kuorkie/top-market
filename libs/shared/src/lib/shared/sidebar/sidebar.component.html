@@ -1,14 +1,29 @@
-<p-sidebar #sidebarRef [(visible)]="sidebarVisible" modal="false">
+<div class="layout-news">
+  <div class="flex align-items-center justify-content-start gap-6 flex-shrink-0" style=" height:4rem!important;color: white!important;background-color: #0C3981!important;">
+                <span class="inline-flex align-items-center gap-2">
+                    <span class="text-4xl text-primary" id="logo">TopMarketKz</span>
+                </span>
+    <span>
+          <p-button class="barStyle" type="button" icon="pi pi-bars"  outlined="true" (onClick)=" sidebarVisible = !sidebarVisible"></p-button>
+        </span>
+  </div>
+
+</div>
+<p-sidebar #sidebarRef [(visible)]="sidebarVisible"  modal="false">
+
   <ng-template pTemplate="headless">
     <div class="flex flex-column h-full">
-      <div class="flex align-items-center justify-content-between px-4 pt-3 flex-shrink-0">
-                <span class="inline-flex align-items-center gap-2">
-                    <span class="text-2xl text-primary" id="logo">TopMarketKz</span>
-                </span>
-        <span>
-          <p-button type="button" icon="pi pi-bars"  outlined="true" (onClick)="closeCallback($event)" styleClass="h-2rem w-2rem"></p-button>
-        </span>
-      </div>
+
+<!--        <div class="flex align-items-center justify-content-between px-4  flex-shrink-0" style=" height:4rem!important;color: white!important;background-color: #0C3981!important;">-->
+<!--                <span class="inline-flex align-items-center gap-2">-->
+<!--                    <span class="text-4xl text-primary" id="logo">TopMarketKz</span>-->
+<!--                </span>-->
+<!--          <span>-->
+<!--          <p-button class="barStyle" type="button" icon="pi pi-bars"  outlined="true" (onClick)="closeCallback($event)"></p-button>-->
+<!--        </span>-->
+<!--        </div>-->
+
+
       <div class="overflow-y-auto" *ngFor="let menuItem of allMenu">
         <ul class="list-none p-3 m-0" >
           <li>
@@ -21,13 +36,14 @@
               leaveActiveClass="slideup"
               class="p-3 flex align-items-center justify-content-between text-600 cursor-pointer p-ripple"
             >
-            <span class="sm:font-bold parent-label">{{menuItem.menuCode}}</span>
+            <span class="sm:font-bold parent-label">{{menuItem.langFieldsMenuItemDtoList[0].value}}</span>
               <i class="pi pi-chevron-down"></i>
             </div>
-            <ul class="list-none p-0 m-0 overflow-hidden" *ngFor="let menuDtos of menuItem.menuItemDtos">
+            <ul class="list-none p-0 m-0 overflow-hidden">
 
 
-              <li>
+              <li  *ngFor="let menuDtos of menuItem.menuItemDtos"                   style="padding-left: 10px"
+              >
                 <a
                   pRipple
                   [ngClass]="{'active': activeLink === menuDtos.menuUrl}"
@@ -37,9 +53,9 @@
                   enterActiveClass="slidedown"
                   leaveToClass="hidden"
                   leaveActiveClass="slideup"
-                  class="flex align-items-center cursor-pointer p-3 border-round text-700 hover:surface-100 transition-duration-150 transition-colors p-ripple"
+                  class="flex align-items-center cursor-pointer p-3 border-round p-ripple"
                 >
-                  <span class="font-medium child-label">{{menuDtos.menuCode}}</span>
+                  <span class="font-medium child-label">{{menuDtos.langFieldsMenuItemDtoList[0].value}}</span>
 <!--                  <i class="pi pi-chevron-down ml-auto"></i>-->
                 </a>
 <!--                <ul class="list-none py-0 pl-3 pr-0 m-0 hidden overflow-y-hidden transition-all transition-duration-400 transition-ease-in-out">-->
@@ -90,6 +106,4 @@
     </div>
   </ng-template>
 </p-sidebar>
-<span *ngIf="!sidebarVisible">
-  <p-button type="button" icon="pi pi-bars"  outlined="true" (onClick)="openCallback()" styleClass="h-2rem w-2rem"></p-button>
-</span>
+
