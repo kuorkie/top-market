@@ -19,6 +19,8 @@ export class SidebarComponent {
   allMenu: any[] = []
   sidebarVisible: boolean = true
   private accountName: string = "";
+  activeLink: string = '';
+
 
   ngOnInit() {
 
@@ -38,6 +40,7 @@ export class SidebarComponent {
 
   navigate(url:string){
     this.router.navigate([`admin-home/${url}`])
+    this.activeLink = url; // Set the active link
   }
 
   openCallback():void{

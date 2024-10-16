@@ -30,6 +30,7 @@
               <li>
                 <a
                   pRipple
+                  [ngClass]="{'active': activeLink === menuDtos.menuUrl}"
                   (click)="navigate(menuDtos.menuUrl)"
                   pStyleClass="@next"
                   enterClass="hidden"
