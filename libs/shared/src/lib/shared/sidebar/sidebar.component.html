@@ -42,17 +42,14 @@
             <ul class="list-none p-0 m-0 overflow-hidden">
 
 
-              <li  *ngFor="let menuDtos of menuItem.menuItemDtos"                   style="padding-left: 10px"
+              <li  *ngFor="let menuDtos of menuItem?.menuItemDtos"
+                   style="padding-left: 10px"
               >
                 <a
                   pRipple
                   [ngClass]="{'active': activeLink === menuDtos.menuUrl}"
                   (click)="navigate(menuDtos.menuUrl)"
-                  pStyleClass="@next"
-                  enterClass="hidden"
-                  enterActiveClass="slidedown"
-                  leaveToClass="hidden"
-                  leaveActiveClass="slideup"
+
                   class="flex align-items-center cursor-pointer p-3 border-round p-ripple"
                 >
                   <span class="font-medium child-label">{{menuDtos.langFieldsMenuItemDtoList[0].value}}</span>

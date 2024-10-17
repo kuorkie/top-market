@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule, NO_ERRORS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {AppComponent} from "./app.component";
 import {AppRoutingModule} from "./app.routes";
@@ -10,6 +10,7 @@ import {ButtonModule} from "primeng/button";
 import {SidebarModule} from "primeng/sidebar";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {HttpClientModule} from "@angular/common/http";
+import {TableModule} from "primeng/table";
 
 
 
@@ -25,9 +26,9 @@ import {HttpClientModule} from "@angular/common/http";
     AvatarModule,
     ButtonModule,
     SidebarModule,
+    TableModule,
     HttpClientModule
   ],
-  bootstrap: [AppComponent],
-
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { Route,RouterModule} from '@angular/router';
 import {loadRemoteModule} from "@nx/angular/mf";
-import {NgModule} from "@angular/core";
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {authGuard} from "../../../../libs/shared/src/lib/shared/services/auth.guard";
 import {UsersComponent} from "./modules/administration/components/users/users.component";
@@ -26,6 +26,5 @@ export const appRoutes: Route[] = [
 
 @NgModule({
   imports: [RouterModule.forRoot(appRoutes)],
-  exports: [RouterModule]
-})
+  exports: [RouterModule]})
 export class AppRoutingModule { }
