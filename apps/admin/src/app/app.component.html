@@ -1,10 +1,12 @@
-@if (userService.isLoggedIn()) {
-  <lib-sidebar></lib-sidebar>
-  <div class="app-main__outer">
+<!--@if (userService.isLoggedIn()) {-->
+<div     [class]="'app-container'">
+  <lib-sidebar (sidebarToggle)="onSidebarToggle($event)"></lib-sidebar>
+  <div [ngStyle]="{'padding': isSidebarCollapsed ? '0 0 0 280px' : '0'}"  class="app-main__outer">
       <div class="app-main__inner">
         <router-outlet></router-outlet>
       </div>
   </div>
-} @else {
-<router-outlet></router-outlet>
-}
+</div>
+<!--} @else {-->
+<!--<router-outlet></router-outlet>-->
+<!--}-->

@@ -3,7 +3,7 @@ import {loadRemoteModule} from "@nx/angular/mf";
 import {NgModule} from "@angular/core";
 import {AppComponent} from "./app.component";
 import {authGuard} from "../../../../libs/shared/src/lib/shared/services/auth.guard";
-import {UsersComponent} from "./modules/administration/users/users.component";
+import {UsersComponent} from "./modules/administration/components/users/users.component";
 
 export const appRoutes: Route[] = [
   {

@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Output, ViewChild} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {SharedService} from "../shared.service";
 import {UserService} from "../services/user.service";
@@ -14,6 +14,7 @@ export class SidebarComponent {
   constructor(private sharedService: SharedService, private userService: UserService,private router:Router) {
 
   }
+  @Output() sidebarToggle = new EventEmitter<boolean>();
   @ViewChild('sidebarRef') sidebarRef!: Sidebar;
 
   allMenu: any[] = []
@@ -33,11 +34,10 @@ export class SidebarComponent {
     }
   }
 
-  closeCallback(e:any): void {
-    this.sidebarRef.close(e)
-    console.log(e)
+  toggle() {
+    this.sidebarVisible = !this.sidebarVisible
+    this.sidebarToggle.emit(this.sidebarVisible);
   }
-
   navigate(url:string){
     this.router.navigate([`admin-home/${url}`])
     this.activeLink = url; // Set the active link

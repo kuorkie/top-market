@@ -10,12 +10,16 @@ import {PrimeNGConfig} from "primeng/api";
 })
 export class AppComponent {
   title = 'admin';
-
+  isSidebarCollapsed:boolean = true
   constructor(public userService:UserService) {
 
   }
 
   ngOnInit(){
     console.log(this.userService.isLoggedIn())
+  }
+  onSidebarToggle(event:boolean){
+    this.isSidebarCollapsed = event;
+    console.log(this.isSidebarCollapsed)
   }
 }
